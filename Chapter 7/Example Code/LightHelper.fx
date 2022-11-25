@@ -119,31 +119,6 @@ void ComputeDirectionalLight(Material mat, DirectionalLight L,
 		// L.Specular : 반영광이 방출하는 반영광의 양
 		spec = specFactor * mat.Specular * L.Specular;
 	}
-	
-	// ----------------------------------------------- 연습문제 7장 3번 코드 --------------------------------------------------------------------
-
-	//		{0.4	(-∞ < Kd <= 0.0)
-	// Kd = {0.6	(0.0 < Kd <= 0.5)
-	//		{1.0	(0.5 < Kd <= 1.0)
-	//
-	// 
-	//		{0.0	(0.0 < Ks <= 0.1)
-	// Ks = {0.5	(0.5 < Ks <= 0.8)
-	//		{0.8	(0.8 < Ks <= 1.0) 
-	// 
-
-	/*float3 v = reflect(-lightVec, normal);
-	float specFactor = pow(max(dot(v, toEye), 0.0f), mat.Specular.w);
-
-	if (diffuseFactor <= 0.0)		diffuse = 0.4 * mat.Diffuse * L.Diffuse;
-	else if (diffuseFactor <= 0.5)	diffuse = 0.6 * mat.Diffuse * L.Diffuse;
-	else if (diffuseFactor <= 1.0)	diffuse = 1.0 * mat.Diffuse * L.Diffuse;
-
-	if (0.0 < specFactor && specFactor <= 0.1)			spec = 0;
-	else if (0.5 < specFactor && specFactor <= 0.8)		spec = 0.5 * mat.Specular * L.Specular;
-	else if (0.8 < specFactor && specFactor <= 1.0)		spec = 0.8 * mat.Specular * L.Specular;*/
-
-	// ----------------------------------------------- 연습문제 7장 3번 코드 --------------------------------------------------------------------
 }
 
 //---------------------------------------------------------------------------------------
@@ -202,31 +177,6 @@ void ComputePointLight(Material mat, PointLight L, float3 pos, float3 normal, fl
 		diffuse = diffuseFactor * mat.Diffuse * L.Diffuse;
 		spec    = specFactor * mat.Specular * L.Specular;
 	}
-
-	// ----------------------------------------------- 연습문제 7장 3번 코드 --------------------------------------------------------------------
-
-	//		{0.4	(-∞ < Kd <= 0.0)
-	// Kd = {0.6	(0.0 < Kd <= 0.5)
-	//		{1.0	(0.5 < Kd <= 1.0)
-	//
-	// 
-	//		{0.0	(0.0 < Ks <= 0.1)
-	// Ks = {0.5	(0.5 < Ks <= 0.8)
-	//		{0.8	(0.8 < Ks <= 1.0) 
-	// 
-	
-	/*float3 v = reflect(-lightVec, normal);
-	float specFactor = pow(max(dot(v, toEye), 0.0f), mat.Specular.w);
-
-	if (diffuseFactor <= 0.0)		diffuse = 0.4 * mat.Diffuse * L.Diffuse;
-	else if (diffuseFactor <= 0.5)	diffuse = 0.6 * mat.Diffuse * L.Diffuse;
-	else if (diffuseFactor <= 1.0)	diffuse = 1.0 * mat.Diffuse * L.Diffuse;
-
-	if (0.0 < specFactor && specFactor <= 0.1)			spec = 0;
-	else if (0.5 < specFactor && specFactor <= 0.8)		spec = 0.5 * mat.Specular * L.Specular;
-	else if (0.8 < specFactor && specFactor <= 1.0)		spec = 0.8 * mat.Specular * L.Specular;*/
-
-	// ----------------------------------------------- 연습문제 7장 3번 코드 --------------------------------------------------------------------
 
 	// Attenuate
 	// 감쇠
@@ -301,31 +251,6 @@ void ComputeSpotLight(Material mat, SpotLight L, float3 pos, float3 normal, floa
 		diffuse = diffuseFactor * mat.Diffuse * L.Diffuse;
 		spec    = specFactor * mat.Specular * L.Specular;
 	}
-
-	// ----------------------------------------------- 연습문제 7장 3번 코드 --------------------------------------------------------------------
-	
-	//		{0.4	(-∞ < Kd <= 0.0)
-	// Kd = {0.6	(0.0 < Kd <= 0.5)
-	//		{1.0	(0.5 < Kd <= 1.0)
-	//
-	// 
-	//		{0.0	(0.0 < Ks <= 0.1)
-	// Ks = {0.5	(0.5 < Ks <= 0.8)
-	//		{0.8	(0.8 < Ks <= 1.0) 
-	// 
-	
-	/*float3 v = reflect(-lightVec, normal);
-	float specFactor = pow(max(dot(v, toEye), 0.0f), mat.Specular.w);
-
-	if (diffuseFactor <= 0.0)		diffuse = 0.4 * mat.Diffuse * L.Diffuse;
-	else if (diffuseFactor <= 0.5)	diffuse = 0.6 * mat.Diffuse * L.Diffuse;
-	else if (diffuseFactor <= 1.0)	diffuse = 1.0 * mat.Diffuse * L.Diffuse;
-
-	if (0.0 < specFactor && specFactor <= 0.1)			spec = 0;
-	else if (0.5 < specFactor && specFactor <= 0.8)		spec = 0.5 * mat.Specular * L.Specular;
-	else if (0.8 < specFactor && specFactor <= 1.0)		spec = 0.8 * mat.Specular * L.Specular;*/
-
-	// ----------------------------------------------- 연습문제 7장 3번 코드 --------------------------------------------------------------------
 	
 	// Scale by spotlight factor and attenuate.
 	// 점적광 계수를 계산한다.
