@@ -204,7 +204,7 @@ void CrateApp::PlayAnimation(float dt)
 		HR(CreateDDSTextureFromFile(md3dDevice,
 			mFileName, &texResource, &mDiffuseMapSRV));
 		mFrame = 0;
-		ReleaseCOM(texResource);	// view saves reference
+		ReleaseCOM(texResource);
 
 		if (mAnimCount >= 120)
 		{

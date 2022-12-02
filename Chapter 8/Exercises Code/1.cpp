@@ -94,11 +94,9 @@ SolutionApp::SolutionApp(HINSTANCE hInstance)
 
 	XMMATRIX I = XMMatrixIdentity();
 	XMStoreFloat4x4(&mBoxWorld, I);
-	//XMMATRIX woodTexScale = XMMatrixScaling(5.0f, 5.0f, 0.0f);
-	XMMATRIX woodTexOffset = XMMatrixTranslation(-0.5f, -0.5f, 0.0f); // 왜 변환 좌표가 이래야 하는지?
-	XMMATRIX woodRotOffset = XMMatrixRotationZ(1);
-	XMMATRIX woodTexOffset2 = XMMatrixTranslation(0.5f, 0.0f, 0.0f);
-	XMStoreFloat4x4(&mTexTransform, woodTexOffset * woodRotOffset *woodTexOffset2);
+	XMMATRIX woodTexScale = XMMatrixScaling(5.0f, 5.0f, 0.0f);
+	XMMATRIX woodTexOffset = XMMatrixTranslation(-0.5f, -0.5f, 0.0f); // 좌표 변환에 유의
+	XMStoreFloat4x4(&mTexTransform, woodTexScale * woodTexOffset);
 
 	//XMStoreFloat4x4(&mTexTransform, I);
 	XMStoreFloat4x4(&mView, I);

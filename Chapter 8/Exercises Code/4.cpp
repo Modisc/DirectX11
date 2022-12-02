@@ -42,6 +42,7 @@ private:
 
 	ID3D11ShaderResourceView* mFireMapSRV;
 	ID3D11ShaderResourceView* mFireAlphaMapSRV;
+	float mFrame;
 
 	DirectionalLight mDirLights[3];
 	Material mBoxMat;
@@ -58,7 +59,6 @@ private:
 
 	XMFLOAT3 mEyePosW;
 	
-	float mFrame;
 	float mTheta;
 	float mPhi;
 	float mRadius;

@@ -90,12 +90,15 @@ float4 PS(VertexOut pin, uniform int gLightCount, uniform bool gUseTexure) : SV_
     float4 texColor = float4(1, 1, 1, 1);
     if(gUseTexure)
 	{
-		// 특정 텍스처만 회전하도록 하기 위해, 텍스처에 회전행렬을 적용하는
-		// 함수를 구현하고, 텍스처 이미지 모두 적용함.
+		// 특정 텍스처만 회전하도록 하기 위해, 텍스처 좌표에
+		// 회전 변환 행렬을 적용한 좌표를 구한다.
 		float2 uv_rot = rotation_texture(pin.Tex, gTimeDeltaAcc);
 
-		// 원래의 텍스처 이미지와 회전 행렬을 적용한 이미지를 각각 선택해서
-		// 원하는 이미지만 회전하고, 다른 이미지는 가만있도록 만듦
+		// 입력으로 들어온 회전 변환을 하지 않은 텍스처 좌표를 이용해
+		// gFireAlphaMap에 저장된 텍스처에서의 표본을 추출하고,
+		// 회전 변환 행렬을 적용한 텍스처 좌표를 이용해
+		// gFireMap에 저장된 텍스처에서의 표본을 추출한다.
+		// 이러면 이미지 하나만 회전하고 남은 하나는 그대로 유지된다.
 		float4 fireTex = gFireMap.Sample(samAnisotropic, uv_rot);
 		float4 fireAlphaTex = gFireAlphaMap.Sample(samAnisotropic, pin.Tex);
 		//texColor = gDiffuseMap.Sample(samAnisotropic, pin.Tex);
