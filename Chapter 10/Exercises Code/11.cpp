@@ -548,11 +548,8 @@ void MirrorApp::DrawScene()
 
 		md3dImmediateContext->RSSetState(RenderStates::CullClockwiseRS);
 		md3dImmediateContext->OMSetBlendState(RenderStates::TransparentBS, blendFactor, 0xffffffff);
-		md3dImmediateContext->OMSetDepthStencilState(RenderStates::DrawReflectionDSS, 1);
-		pass->Apply(0, md3dImmediateContext);
-		md3dImmediateContext->DrawIndexed(mSkullIndexCount, 0, 0);
-
-		md3dImmediateContext->OMSetDepthStencilState(RenderStates::NoDoubleBlendDSS, 0);
+		md3dImmediateContext->OMSetDepthStencilState(RenderStates::DrawShadowReflectionDSS, 1);
+		
 		pass->Apply(0, md3dImmediateContext);
 		md3dImmediateContext->DrawIndexed(mSkullIndexCount, 0, 0);
 
